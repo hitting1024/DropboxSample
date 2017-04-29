@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D451B6A3C6F069CB2A161BC /* Pods_DropboxSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F08D6C04EC602F237A8976 /* Pods_DropboxSample.framework */; };
 		D8D551B51EB4D3D800F03D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D551B41EB4D3D800F03D9C /* AppDelegate.swift */; };
 		D8D551B71EB4D3D800F03D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D551B61EB4D3D800F03D9C /* ViewController.swift */; };
 		D8D551BA1EB4D3D800F03D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D551B81EB4D3D800F03D9C /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		265B9C17841A19AEF0B8B038 /* Pods-DropboxSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropboxSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropboxSample/Pods-DropboxSample.debug.xcconfig"; sourceTree = "<group>"; };
+		52F08D6C04EC602F237A8976 /* Pods_DropboxSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropboxSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F08A7C569C7CFB51F484836 /* Pods-DropboxSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropboxSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropboxSample/Pods-DropboxSample.release.xcconfig"; sourceTree = "<group>"; };
 		D8D551B11EB4D3D800F03D9C /* DropboxSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D551B41EB4D3D800F03D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8D551B61EB4D3D800F03D9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D451B6A3C6F069CB2A161BC /* Pods_DropboxSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1FDEA957119111834C3A2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				265B9C17841A19AEF0B8B038 /* Pods-DropboxSample.debug.xcconfig */,
+				8F08A7C569C7CFB51F484836 /* Pods-DropboxSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C404F236847FEBBF373675C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F08D6C04EC602F237A8976 /* Pods_DropboxSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8D551A81EB4D3D800F03D9C = {
 			isa = PBXGroup;
 			children = (
 				D8D551B31EB4D3D800F03D9C /* DropboxSample */,
 				D8D551B21EB4D3D800F03D9C /* Products */,
+				6D1FDEA957119111834C3A2E /* Pods */,
+				C404F236847FEBBF373675C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8D551C31EB4D3D800F03D9C /* Build configuration list for PBXNativeTarget "DropboxSample" */;
 			buildPhases = (
+				27F414183A4E3B5563B8F8D8 /* [CP] Check Pods Manifest.lock */,
 				D8D551AD1EB4D3D800F03D9C /* Sources */,
 				D8D551AE1EB4D3D800F03D9C /* Frameworks */,
 				D8D551AF1EB4D3D800F03D9C /* Resources */,
+				AB7D44A7B645F6D5D63C5E6E /* [CP] Embed Pods Frameworks */,
+				556E1A0135F2AFEB7E847522 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27F414183A4E3B5563B8F8D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		556E1A0135F2AFEB7E847522 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropboxSample/Pods-DropboxSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB7D44A7B645F6D5D63C5E6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropboxSample/Pods-DropboxSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8D551AD1EB4D3D800F03D9C /* Sources */ = {
@@ -261,6 +336,7 @@
 		};
 		D8D551C41EB4D3D800F03D9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 265B9C17841A19AEF0B8B038 /* Pods-DropboxSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HEMC67SK37;
@@ -274,6 +350,7 @@
 		};
 		D8D551C51EB4D3D800F03D9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F08A7C569C7CFB51F484836 /* Pods-DropboxSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HEMC67SK37;
