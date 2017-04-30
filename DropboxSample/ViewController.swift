@@ -37,6 +37,22 @@ extension ViewController {
     }
     
     @IBAction func load(_ sender: UIBarButtonItem) {
+        guard let client = DropboxClientsManager.authorizedClient else { return }
+        
+        client.files.listFolder(path: "").response(completionHandler: { response, error in
+            guard let result = response else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            
+            self.list.removeAll()
+            for entry in result.entries {
+                self.list.append(entry.name)
+            }
+            self.tableView.reloadData()
+        })
     }
 
 }
