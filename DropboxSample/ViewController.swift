@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftyDropbox
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -20,6 +22,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
+extension ViewController {
+
+    @IBAction func login(_ sender: UIBarButtonItem) {
+        DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: { url in
+            UIApplication.shared.openURL(url)
+        }, browserAuth: false)
+    }
+    
+}
