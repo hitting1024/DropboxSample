@@ -57,6 +57,12 @@ extension ViewController {
             self.tableView.reloadData()
         })
     }
+    
+    fileprivate class func string(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd-HHmmss"
+        return formatter.string(from: date)
+    }
 
 }
 
