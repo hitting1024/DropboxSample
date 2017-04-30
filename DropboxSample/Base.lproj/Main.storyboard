@@ -70,9 +70,9 @@
                                 <action selector="load:" destination="H8j-An-Uay" id="6OM-JS-ayN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Login" id="MHu-Fu-vPZ">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="MHu-Fu-vPZ">
                             <connections>
-                                <action selector="login:" destination="H8j-An-Uay" id="O7w-JZ-mUC"/>
+                                <action selector="upload:" destination="H8j-An-Uay" id="Zvq-Fu-VBh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

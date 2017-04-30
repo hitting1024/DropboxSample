@@ -31,12 +31,8 @@ class ViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }, browserAuth: false)
     }
-
-}
-
-extension ViewController {
     
-    @IBAction func load(_ sender: UIBarButtonItem) {
+    fileprivate func loadData() {
         guard let client = DropboxClientsManager.authorizedClient else {
             self.login()
             return
@@ -62,6 +58,40 @@ extension ViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd-HHmmss"
         return formatter.string(from: date)
+    }
+
+}
+
+extension ViewController {
+    
+    @IBAction func load(_ sender: UIBarButtonItem) {
+        self.loadData()
+    }
+
+    @IBAction func upload(_ sender: UIBarButtonItem) {
+        guard let client = DropboxClientsManager.authorizedClient else {
+            self.login()
+            return
+        }
+        
+        let filename = ViewController.string(from: Date()) + ".txt"
+        let fileData = "test data: \(filename)".data(using: .utf8, allowLossyConversion: false)!
+        _ = client.files.upload(path: "/\(filename)", input: fileData)
+            .response(completionHandler: { response, error in
+                guard let result = response else {
+                    if let error = error {
+                        print(error)
+                    }
+                    return
+                }
+                
+                print(result)
+                
+                self.loadData()
+            })
+            .progress({ progressData in
+                print(progressData)
+            })
     }
 
 }
