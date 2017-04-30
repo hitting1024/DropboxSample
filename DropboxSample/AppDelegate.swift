@@ -44,6 +44,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
 
+extension AppDelegate {
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let authResult = DropboxClientsManager.handleRedirectURL(url) {
+            switch authResult {
+            case .success(let token):
+                print("success: \(token)")
+            case .cancel:
+                print("cancel")
+            case .error(let error, let description):
+                print("error: \(error)")
+                print("description: \(description)")
+            }
+        }
+        return true
+    }
+    
+}
