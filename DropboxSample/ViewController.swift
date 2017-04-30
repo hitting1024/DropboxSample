@@ -25,19 +25,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-}
-
-extension ViewController {
-
-    @IBAction func login(_ sender: UIBarButtonItem) {
+    
+    fileprivate func login() {
         DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: { url in
             UIApplication.shared.openURL(url)
         }, browserAuth: false)
     }
+
+}
+
+extension ViewController {
     
     @IBAction func load(_ sender: UIBarButtonItem) {
-        guard let client = DropboxClientsManager.authorizedClient else { return }
+        guard let client = DropboxClientsManager.authorizedClient else {
+            self.login()
+            return
+        }
         
         client.files.listFolder(path: "").response(completionHandler: { response, error in
             guard let result = response else {
