@@ -27,7 +27,7 @@
         <!--Dropbox Sample-->
         <scene sceneID="D3U-1m-WWv">
             <objects>
-                <viewController id="H8j-An-Uay" customClass="ViewController" customModule="DropboxSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="H8j-An-Uay" customClass="ViewController" customModule="DropboxSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y6G-jR-ZIh"/>
                         <viewControllerLayoutGuide type="bottom" id="1yC-WI-09C"/>
@@ -35,19 +35,54 @@
                     <view key="view" contentMode="scaleToFill" id="0ZO-8d-t1f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-hm-wNW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DropboxCell" id="4qU-Ok-Mmn">
+                                        <rect key="frame" x="0.0" y="18" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4qU-Ok-Mmn" id="HeT-5H-mVQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H8j-An-Uay" id="2gX-Np-fxY"/>
+                                    <outlet property="delegate" destination="H8j-An-Uay" id="uKG-kK-wXV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qMI-hm-wNW" firstAttribute="top" secondItem="y6G-jR-ZIh" secondAttribute="bottom" id="F9a-wR-1Sq"/>
+                            <constraint firstItem="qMI-hm-wNW" firstAttribute="leading" secondItem="0ZO-8d-t1f" secondAttribute="leading" id="jr5-Ve-uvR"/>
+                            <constraint firstAttribute="trailing" secondItem="qMI-hm-wNW" secondAttribute="trailing" id="oCJ-GY-9Gg"/>
+                            <constraint firstItem="1yC-WI-09C" firstAttribute="top" secondItem="qMI-hm-wNW" secondAttribute="bottom" id="ybC-aC-shl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dropbox Sample" id="jKa-f0-RmF">
+                        <barButtonItem key="leftBarButtonItem" title="Load" id="Xey-3n-PoX">
+                            <connections>
+                                <action selector="load:" destination="H8j-An-Uay" id="6OM-JS-ayN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Login" id="MHu-Fu-vPZ">
                             <connections>
                                 <action selector="login:" destination="H8j-An-Uay" id="O7w-JZ-mUC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="qMI-hm-wNW" id="dtd-Ty-dgx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="607-uv-CHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="-316"/>
+            <point key="canvasLocation" x="-12" y="-316.19190404797604"/>
         </scene>
     </scenes>
 </document>
