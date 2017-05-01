@@ -121,6 +121,10 @@ extension ViewController {
             })
     }
 
+    @IBAction func logout(_ sender: Any) {
+        DropboxClientsManager.unlinkClients()
+    }
+
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

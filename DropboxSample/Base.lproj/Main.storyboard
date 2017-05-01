@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,16 +66,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dropbox Sample" id="jKa-f0-RmF">
-                        <barButtonItem key="leftBarButtonItem" title="Load" id="Xey-3n-PoX">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="QeS-Vm-Cg1">
                             <connections>
-                                <action selector="load:" destination="H8j-An-Uay" id="6OM-JS-ayN"/>
+                                <action selector="logout:" destination="H8j-An-Uay" id="ntE-3p-jYx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Upload" id="MHu-Fu-vPZ">
-                            <connections>
-                                <action selector="upload:" destination="H8j-An-Uay" id="Zvq-Fu-VBh"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Upload" id="MHu-Fu-vPZ">
+                                <connections>
+                                    <action selector="upload:" destination="H8j-An-Uay" id="Zvq-Fu-VBh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Load" id="Xey-3n-PoX">
+                                <connections>
+                                    <action selector="load:" destination="H8j-An-Uay" id="6OM-JS-ayN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="qMI-hm-wNW" id="dtd-Ty-dgx"/>
