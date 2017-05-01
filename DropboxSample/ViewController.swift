@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    fileprivate var list: Array<String> = Array<String>()
+    fileprivate var list = Array<Files.FileMetadata>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,8 @@ class ViewController: UIViewController {
             }
             
             self.list.removeAll()
-            for entry in result.entries {
-                self.list.append(entry.name)
+            for entry in result.entries as! [Files.FileMetadata] {
+                self.list.append(entry)
             }
             self.tableView.reloadData()
         })
@@ -135,7 +135,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DropboxCell", for: indexPath)
-        cell.textLabel?.text = self.list[indexPath.row]
+        let item = self.list[indexPath.row]
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = "\(item.size)"
         return cell
     }
     
